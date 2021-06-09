@@ -80,6 +80,18 @@
 		<span>-</span>
 		<span>{awayScore}</span>
 	</div>
+	{#if report.scoreSheet && report.scoreSheet.length}
+		<div class="score-sheet">
+			{#each report.scoreSheet as item}
+				<div class="score-sheet__item" class:away={!item.team.home}>
+					<div>
+						<div class="score-sheet__item__name">{item.goalScorer.info.name}</div>
+						<div>{item.matchMinute}'</div>
+					</div>
+				</div>
+			{/each}
+		</div>
+	{/if}
 </div>
 <div class="teams">
 	<div class="team">
@@ -93,7 +105,7 @@
 <style>
 	.scoreboard {
 		margin: var(--gutter-y) auto;
-		width: 200px;
+		width: 600px;
 		font-family: var(--font-mono);
 	}
 
@@ -117,6 +129,37 @@
 
 	.scoreboard span {
 		padding: 0 1rem;
+	}
+
+	.score-sheet {
+		display: flex;
+		flex-direction: column;
+		padding: calc(var(--gutter) / 2);
+		background: var(--brand-secondary-color);
+	}
+
+	.score-sheet__item {
+		display: flex;
+	}
+
+	.score-sheet__item.away {
+		justify-content: flex-end;
+	}
+
+	.score-sheet__item > div {
+		display: flex;
+		justify-content: space-between;
+		width: 50%;
+	}
+
+	.score-sheet__item.away > div {
+		flex-direction: row-reverse;
+	}
+
+	.score-sheet__item__name {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	.teams {
