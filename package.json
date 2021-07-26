@@ -11,8 +11,8 @@
     "format": "prettier --write --plugin-search-dir=. ."
   },
   "devDependencies": {
-    "@sveltejs/kit": "next",
     "@sveltejs/adapter-vercel": "next",
+    "@sveltejs/kit": "next",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "eslint": "^7.22.0",
@@ -28,6 +28,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@bleckert/football-simulator": "^0.0.7"
+    "@bleckert/football-simulator": "^1.0.0"
   }
 }
