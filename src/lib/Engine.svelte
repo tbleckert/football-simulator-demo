@@ -86,7 +86,7 @@
 				<div class="score-sheet__item" class:away={!item.team.home}>
 					<div>
 						<div class="score-sheet__item__name">{item.goalScorer.info.name}</div>
-						<div>{item.matchMinute}'</div>
+						<div class="score-sheet__item__time">{item.matchMinute}'</div>
 					</div>
 				</div>
 			{/each}
@@ -160,6 +160,16 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+	}
+
+	.score-sheet__item__time {
+		width: 20%;
+		text-align: center;
+		transform: translateX(50%);
+	}
+
+	.score-sheet__item.away .score-sheet__item__time {
+		transform: translateX(-50%);
 	}
 
 	.teams {
